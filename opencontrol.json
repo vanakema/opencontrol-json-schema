@@ -1,0 +1,226 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "schema_version",
+    "name",
+    "metadata",
+    "components"
+  ],
+  "properties": {
+    "schema_version": {
+      "$id": "#/properties/schema_version",
+      "type": "string",
+      "title": "The Schema_version Schema",
+      "default": "1.0.0",
+      "examples": [
+        "1.0.0"
+      ]
+    },
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The Name Schema",
+      "default": "",
+      "examples": [
+        "Project_Name"
+      ]
+    },
+    "metadata": {
+      "$id": "#/properties/metadata",
+      "type": "object",
+      "title": "The Metadata Schema",
+      "required": [
+        "description",
+        "maintainers"
+      ],
+      "properties": {
+        "description": {
+          "$id": "#/properties/metadata/properties/description",
+          "type": "string",
+          "title": "The Description Schema",
+          "default": "",
+          "examples": [
+            "A description of the system"
+          ]
+        },
+        "maintainers": {
+          "$id": "#/properties/metadata/properties/maintainers",
+          "type": "array",
+          "title": "The Maintainers Schema",
+          "items": {
+            "$id": "#/properties/metadata/properties/maintainers/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "default": "",
+            "examples": [
+              "maintainer_email@email.com"
+            ]
+          }
+        }
+      }
+    },
+    "components": {
+      "$id": "#/properties/components",
+      "type": "array",
+      "title": "The Components Schema",
+      "items": {
+        "$id": "#/properties/components/items",
+        "type": "string",
+        "title": "The Items Schema",
+        "default": "",
+        "examples": [
+          "./component-1"
+        ]
+      }
+    },
+    "certifications": {
+      "$id": "#/properties/certifications",
+      "type": "array",
+      "title": "The Certifications Schema",
+      "items": {
+        "$id": "#/properties/certifications/items",
+        "type": "string",
+        "title": "The Items Schema",
+        "default": "",
+        "examples": [
+          "./cert-1.yaml"
+        ],
+        "pattern": "^.*\\.yaml$"
+      }
+    },
+    "standards": {
+      "$id": "#/properties/standards",
+      "type": "array",
+      "title": "The Standards Schema",
+      "items": {
+        "$id": "#/properties/standards/items",
+        "type": "string",
+        "title": "The Items Schema",
+        "default": "",
+        "examples": [
+          "./standard-1.yaml"
+        ],
+        "pattern": "^.*\\.yaml"
+      }
+    },
+    "dependencies": {
+      "$id": "#/properties/dependencies",
+      "type": "object",
+      "title": "The Dependencies Schema",
+      "properties": {
+        "certifications": {
+          "$id": "#/properties/dependencies/properties/certifications",
+          "type": "array",
+          "title": "The Certifications Schema",
+          "items": {
+            "$id": "#/properties/dependencies/properties/certifications/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "url",
+              "revision"
+            ],
+            "properties": {
+              "url": {
+                "$id": "#/properties/dependencies/properties/certifications/items/properties/url",
+                "type": "string",
+                "title": "The Url Schema",
+                "default": "",
+                "examples": [
+                  "https://github.com/18F/GSA-Certifications"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "revision": {
+                "$id": "#/properties/dependencies/properties/certifications/items/properties/revision",
+                "type": "string",
+                "title": "The Revision Schema",
+                "default": "",
+                "examples": [
+                  "master"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        },
+        "systems": {
+          "$id": "#/properties/dependencies/properties/systems",
+          "type": "array",
+          "title": "The Systems Schema",
+          "items": {
+            "$id": "#/properties/dependencies/properties/systems/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "url",
+              "revision"
+            ],
+            "properties": {
+              "url": {
+                "$id": "#/properties/dependencies/properties/systems/items/properties/url",
+                "type": "string",
+                "title": "The Url Schema",
+                "default": "",
+                "examples": [
+                  "https://github.com/18F/cg-compliance"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "revision": {
+                "$id": "#/properties/dependencies/properties/systems/items/properties/revision",
+                "type": "string",
+                "title": "The Revision Schema",
+                "default": "",
+                "examples": [
+                  "master"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        },
+        "standards": {
+          "$id": "#/properties/dependencies/properties/standards",
+          "type": "array",
+          "title": "The Standards Schema",
+          "items": {
+            "$id": "#/properties/dependencies/properties/standards/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "url",
+              "revision"
+            ],
+            "properties": {
+              "url": {
+                "$id": "#/properties/dependencies/properties/standards/items/properties/url",
+                "type": "string",
+                "title": "The Url Schema",
+                "default": "",
+                "examples": [
+                  "https://github.com/opencontrol/NIST-800-53-Standards"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "revision": {
+                "$id": "#/properties/dependencies/properties/standards/items/properties/revision",
+                "type": "string",
+                "title": "The Revision Schema",
+                "default": "",
+                "examples": [
+                  "master"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
